@@ -14,7 +14,7 @@ https://guides.rubyonrails.org/install_ruby_on_rails.html
 
 ```bash
 git clone git@github.com:emilioborraz/rails_api_07092025.git
-cd backend_app
+cd rails_api_07092025
 rails db:migrate
 rails server
 ```
