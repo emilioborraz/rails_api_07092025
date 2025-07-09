@@ -19,7 +19,8 @@ rails db:migrate
 rails server
 ```
 
-Navigate to http://127.0.0.1:3000/api/health and you should see a 200 OK returned
+Navigate to http://127.0.0.1:3000/api/health and you should see a 200 OK returned.
+
 Use this [Postman collection](https://github.com/emilioborraz/rails_api_07092025/tree/main/postman) to interact with the API.
 
 
