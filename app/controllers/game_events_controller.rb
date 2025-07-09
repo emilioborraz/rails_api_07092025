@@ -46,6 +46,6 @@ class GameEventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_event_params
-      params.expect(game_event: [ :game_name, :game_type, :occurred_at ])
+      params.expect(game_event: [ :game_name, :game_type, :occurred_at ]).merge(user_id: @session.user.id)
     end
 end

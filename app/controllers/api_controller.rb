@@ -13,4 +13,8 @@ class ApiController < ApplicationController
       head :created
     end
   end
+
+  def details
+  	render json: @session.user.details_stats, status: :ok
+  end
 end

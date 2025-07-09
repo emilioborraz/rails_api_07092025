@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "api/health"
   post "api/user"
+  get "api/user", to: "api#details"
   post "api/sessions" , to: "sessions#create"
 end

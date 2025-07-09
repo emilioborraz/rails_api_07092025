@@ -29,7 +29,7 @@ module Authentication
 
     def require_authentication
       return true if authenticated?
-      render json: {"forbidden": "forbidden"}, status: :forbidden
+      render json: {"errors": "forbidden"}, status: :forbidden
     end
 
     def request_authentication
