@@ -12,7 +12,7 @@ class InterviewsAccounts
   BASE_URL = "https://interviews-accounts.elevateapp.com/api/v1/"
 
   def initialize(api_key:)
-    @api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiaWxsaW5nIiwiaWF0IjoxNzQzMDg1NDk5LCJleHAiOm51bGwsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6ImJpbGxpbmdfY2xpZW50In0.aRwnR_QP6AlOv_JanMkbhwe9ACDcJc5184pXdR0ksXg'
+    @api_key = Rails.application.credentials.dig(:interviews_account_api_key)
   end
 
   def fetch_data(resource)
