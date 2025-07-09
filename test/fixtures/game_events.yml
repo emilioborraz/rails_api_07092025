@@ -2,10 +2,12 @@
 
 one:
   game_name: MyString
-  game_type: MyString
+  game_type: COMPLETED
   occurred_at: 2025-07-08 22:30:39
+  user: default_user
 
 two:
   game_name: MyString
-  game_type: MyString
+  game_type: COMPLETED
   occurred_at: 2025-07-08 22:30:39
+  user: default_user

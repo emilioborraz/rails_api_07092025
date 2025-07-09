@@ -7,3 +7,7 @@ one:
 two:
   email_address: two@example.com
   password_digest: <%= password_digest %>
+
+default_user:
+  email_address: user@example.com
+  password_digest: <%= password_digest %>

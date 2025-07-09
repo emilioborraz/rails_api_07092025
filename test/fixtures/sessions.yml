@@ -1,0 +1,9 @@
+<% password_digest = BCrypt::Password.create("password") %>
+
+session_one:
+  user: default_user
+  ip_address: 
+  user_agent: 
+  created_at: 2025-07-08 22:30:39
+  updated_at: 2025-07-08 22:30:39
+  auth_token: 123456
