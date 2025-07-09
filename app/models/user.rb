@@ -7,6 +7,17 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  def subscription_status
+    begin
+      resource = "users/#{id}/billing"
+      interviewsAccountsApi = InterviewsAccounts.new(api_key: ENV["THIRD_PARTY_API_KEY"])
+      data = interviewsAccountsApi.fetch_data(resource)
+    rescue ExternalApiError => e
+      return ""
+    end
+    data.dig("subscription_status")
+  end
+
   def details_stats
     {
       "user": {
@@ -14,7 +25,8 @@ class User < ApplicationRecord
         "email": email_address,
         "stats": {
           "total_games_played": game_events.count(),
-        }
+        },
+        "subscription_status": subscription_status
       }
     }
   end
