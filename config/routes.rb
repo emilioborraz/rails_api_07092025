@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :game_events
+  resources :game_events, path: "api/user/game_events"
   resource :session
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

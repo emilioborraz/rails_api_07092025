@@ -13,29 +13,28 @@ module Authentication
 
   private
     def authenticated?
+      auth_header = request.headers['Authorization']
+
+      return false if auth_header.blank? || !auth_header.start_with?('Bearer ')
+
+      token = auth_header.split(' ', 2).last
+
+      return false if token.blank?
+      @session = Session.find_by auth_token: token
+
+      return false if @session.blank?
+
       true
-      # resume_session
     end
 
     def require_authentication
-      # resume_session || request_authentication
+      return true if authenticated?
+      render json: {"forbidden": "forbidden"}, status: :forbidden
     end
-
-    # def resume_session
-    #   Current.session ||= find_session_by_cookie
-    # end
-
-    # def find_session_by_cookie
-    #   Session.find_by(id: cookies.signed[:session_id]) if cookies.signed[:session_id]
-    # end
 
     def request_authentication
       session[:return_to_after_authenticating] = request.url
       redirect_to new_session_path
-    end
-
-    def after_authentication_url
-      session.delete(:return_to_after_authenticating) || root_url
     end
 
     def start_new_session_for(user)
